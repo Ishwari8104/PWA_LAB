@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecommerce Store</title>
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+<header>
+<h1>Welcome to Our Ecommerce Store</h1>
+</header>
+<script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/serviceworker.js')
+          .then(registration => {
+            console.log('Service Worker registered with scope:', registration.scope);
+          })
+          .catch(error => {
+            console.error('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Shop</a></li>
+<li><a href="#">Contact Us</a></li>
+</ul>
+</nav>
+<aside>
+<h2>Shopping Categories</h2>
+<ul>
+<li><a href="#">Shirts</a></li>
+<li><a href="#">Pants</a></li>
+</ul>
+</aside>
+<main>
+<section>
+<h2>Featured Products</h2>
+<div class="product">
+<img src="assets/shirt.jpeg" alt="Shirt">
+<h3>Men's Shirt</h3>
+<p>$25.99</p>
+<button>Add to Cart</button>
+</div>
+<div class="product">
+<img src="assets/pant.jpeg" alt="Pant">
+<h3>Women's Pant</h3>
+
+<p>$29.99</p>
+<button>Add to Cart</button>
+</div>
+</section>
+</main>
+<footer>
+<p>&copy; 2024 Ecommerce Store. All rights reserved.</p>
+</footer>
+</body>
+</html>
