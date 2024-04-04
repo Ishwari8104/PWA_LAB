@@ -77,3 +77,4 @@ event.waitUntil(syncProducts());
 function syncProducts() {
 // Implement syncing logic here
 console.log('Syncing products...');
+}
