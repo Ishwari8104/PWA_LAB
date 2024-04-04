@@ -6,24 +6,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ecommerce Store</title>
 <link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
 <h1>Welcome to Our Ecommerce Store</h1>
 </header>
 <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/serviceworker.js')
-          .then(registration => {
-            console.log('Service Worker registered with scope:', registration.scope);
-          })
-          .catch(error => {
-            console.error('Service Worker registration failed:', error);
-          });
-      });
-    }
-  </script>
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('serviceworker.js')
+.then(registration => {
+console.log('Service Worker registered with scope:', registration.scope);
+Notification.requestPermission().then(function(permission) {
+if (permission === 'granted') {
+console.log('Push notification activated');
+}
+});
+})
+.catch(error => {
+console.error('Service Worker registration failed:', error);
+});
+});
+}
+</script>
+
 <nav>
 <ul>
 <li><a href="#">Home</a></li>
